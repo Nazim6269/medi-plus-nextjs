@@ -1,3 +1,4 @@
+import { ThemeProvider } from '@/components/ThemeProvider';
 import { cn } from '@/lib/utils';
 import type { Metadata } from 'next';
 import { Plus_Jakarta_Sans } from 'next/font/google';
@@ -10,7 +11,7 @@ const fontSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: 'MediPlus',
+  title: 'CarePulse',
   description: 'A simple healthcare platform',
 };
 
@@ -27,7 +28,9 @@ export default function RootLayout({
           fontSans.variable,
         )}
       >
-        {children}
+        <ThemeProvider attribute="class" defaultTheme="dark">
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
